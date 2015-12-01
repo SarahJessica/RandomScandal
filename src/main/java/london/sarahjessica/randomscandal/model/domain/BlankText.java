@@ -1,7 +1,8 @@
 package london.sarahjessica.randomscandal.model.domain;
 
-public class BlankSpaceFiller {
 
-    BlankSpaceFiller(){}
+public class BlankText implements Text {
+
+
 
 }

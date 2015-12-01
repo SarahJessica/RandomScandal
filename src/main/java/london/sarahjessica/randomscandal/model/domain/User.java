@@ -18,7 +18,7 @@ public class User {
     public User(String password, String email, String name){
         this(name, HACK, email, password, 0);
     }
-    
+
     public String getName() {
         return name;
     }

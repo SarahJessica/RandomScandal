@@ -1,16 +1,29 @@
 package london.sarahjessica.randomscandal.model.domain;
 
 
-public class Headline {
-    private String text1, text2, text3;
-    private int noOfBlanks;
+import java.lang.*;
+import java.lang.String;
+import java.util.List;
 
-    Headline(int noOfBlanks, String text1, String text2, String text3){
-        this.text1 = text1;
-        this.text2 = text2;
-        this.text3 = text3;
-        this.noOfBlanks = noOfBlanks;
+public class Headline {
+
+    private List<Text> headline;
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for( Text text : headline){
+            if(text instanceof london.sarahjessica.randomscandal.model.domain.String) {
+                sb.append(text);
+            } else {
+                sb.append("_____");
+            }
+            sb.append(" ");
+        }
+        return sb.substring(0, sb.length()-1);
     }
 
-
+    public Headline(List<Text> headline){
+        this.headline = headline;
+    }
 }
