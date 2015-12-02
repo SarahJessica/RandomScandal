@@ -1,33 +1,54 @@
 package london.sarahjessica.randomscandal.model.domain;
 
-import static london.sarahjessica.randomscandal.model.domain.Level.HACK;
+import java.sql.Timestamp;
+
 
 public class User {
     private String name;
     private String email;
     private String password;
-
-
     private String userId;
     private Level level;
     private int highScore;
+    private UserStatus userStatus;
+    private Timestamp lastLoginTimestamp;
+    private boolean inGame;
 
-    public User(String name, Level level, String email, String password, int highScore){
+    public User(String name, Level level, String email, String password, int highScore, UserStatus userStatus, Timestamp lastLoginTimestamp, boolean inGame){
         this.name = name;
         this.level = level;
         this.email = email;
         this.password = password;
         this.highScore = highScore;
+        this.userStatus = userStatus;
+        this.lastLoginTimestamp = lastLoginTimestamp;
+        this.inGame = inGame;
     }
 
-    public User(String password, String email, String name){
-        this(name, HACK, email, password, 0);
+    public User(String password, String email, String name, Timestamp lastLoginTimestamp){
+        this(name, Level.HACK, email, password, 0, UserStatus.LOGGED_IN, lastLoginTimestamp, false);
     }
-
+    public UserStatus getUserStatus() {
+        return userStatus;
+    }
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
+    }
+    public Timestamp getLastLoginTimestamp() {
+        return lastLoginTimestamp;
+    }
+    public void setLastLoginTimestamp(Timestamp lastLoginTimestamp) {
+        this.lastLoginTimestamp = lastLoginTimestamp;
+    }
+    public boolean isInGame() {
+        return inGame;
+    }
+    public void setInGame(boolean inGame) {
+        this.inGame = inGame;
+    }
     public String getUserId() {
         return userId;
     }
-
     public void setUserId(String userId) {
         this.userId = userId;
     }
