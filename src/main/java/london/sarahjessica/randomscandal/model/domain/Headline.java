@@ -13,7 +13,7 @@ public class Headline {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for( Text text : headline){
-            if(text instanceof london.sarahjessica.randomscandal.model.domain.String) {
+            if(text instanceof Word) {
                 sb.append(text);
             } else {
                 sb.append("_____");

@@ -4,9 +4,9 @@ import java.util.List;
 
 public class BlankSpaceFillers {
 
-    private List<String> blankSpaceFillers;
+    private List<Word> blankSpaceFillers;
 
-    public BlankSpaceFillers(List<String> blankSpaceFillers){
+    public BlankSpaceFillers(List<Word> blankSpaceFillers){
         this.blankSpaceFillers = blankSpaceFillers;
     }
 

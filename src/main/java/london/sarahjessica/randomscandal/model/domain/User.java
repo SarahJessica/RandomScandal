@@ -3,7 +3,12 @@ package london.sarahjessica.randomscandal.model.domain;
 import static london.sarahjessica.randomscandal.model.domain.Level.HACK;
 
 public class User {
-    private String name, email, password;
+    private String name;
+    private String email;
+    private String password;
+
+
+    private String userId;
     private Level level;
     private int highScore;
 
@@ -19,6 +24,13 @@ public class User {
         this(name, HACK, email, password, 0);
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
     public String getName() {
         return name;
     }
@@ -58,8 +70,5 @@ public class User {
     public void setHighScore(int highScore) {
         this.highScore = highScore;
     }
-
-
-
 
 }

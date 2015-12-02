@@ -1,7 +1,7 @@
 package london.sarahjessica.randomscandal.model.domain;
 
 
-public class BlankText implements Text {
+public class Blank implements Text {
 
 
 
