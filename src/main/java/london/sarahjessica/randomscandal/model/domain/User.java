@@ -1,6 +1,9 @@
 package london.sarahjessica.randomscandal.model.domain;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.UUID;
 
 
 public class User {
@@ -13,8 +16,9 @@ public class User {
     private UserStatus userStatus;
     private Timestamp lastLoginTimestamp;
     private boolean inGame;
+    protected SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-hh:mm");
 
-    public User(String name, Level level, String email, String password, int highScore, UserStatus userStatus, Timestamp lastLoginTimestamp, boolean inGame){
+    public User(String name, Level level, String email, String password, int highScore, UserStatus userStatus, boolean inGame, Timestamp lastLoginTimestamp, String userId){
         this.name = name;
         this.level = level;
         this.email = email;
@@ -25,9 +29,10 @@ public class User {
         this.inGame = inGame;
     }
 
-    public User(String password, String email, String name, Timestamp lastLoginTimestamp){
-        this(name, Level.HACK, email, password, 0, UserStatus.LOGGED_IN, lastLoginTimestamp, false);
+    public User(String password, String email, String name){
+        this(name, Level.HACK, email, password, 0, UserStatus.LOGGED_IN, false, Timestamp.from(Instant.now()), UUID.randomUUID().toString());
     }
+
     public UserStatus getUserStatus() {
         return userStatus;
     }
@@ -91,5 +96,6 @@ public class User {
     public void setHighScore(int highScore) {
         this.highScore = highScore;
     }
+
 
 }

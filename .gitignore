@@ -1,4 +1,4 @@
 target
 *.iml
 .idea
-example.json
+src/main/resources/*.json
