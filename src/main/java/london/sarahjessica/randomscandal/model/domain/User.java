@@ -13,31 +13,31 @@ public class User {
     private String userId;
     private Level level;
     private int highScore;
-    private UserStatus userStatus;
+    private boolean userLoggedIn
     private Timestamp lastLoginTimestamp;
     private boolean inGame;
     protected SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-hh:mm");
 
-    public User(String name, Level level, String email, String password, int highScore, UserStatus userStatus, boolean inGame, Timestamp lastLoginTimestamp, String userId){
+    public User(String name, Level level, String email, String password, int highScore, boolean userLoggedIn, boolean inGame, Timestamp lastLoginTimestamp, String userId){
         this.name = name;
         this.level = level;
         this.email = email;
         this.password = password;
         this.highScore = highScore;
-        this.userStatus = userStatus;
+        this.userLoggedIn = userLoggedIn;
         this.lastLoginTimestamp = lastLoginTimestamp;
         this.inGame = inGame;
     }
 
     public User(String password, String email, String name){
-        this(name, Level.HACK, email, password, 0, UserStatus.LOGGED_IN, false, Timestamp.from(Instant.now()), UUID.randomUUID().toString());
+        this(name, Level.HACK, email, password, 0, true, false, Timestamp.from(Instant.now()), UUID.randomUUID().toString());
     }
 
-    public UserStatus getUserStatus() {
-        return userStatus;
+    public boolean getUserLoggedIn() {
+        return userLoggedIn;
     }
-    public void setUserStatus(UserStatus userStatus) {
-        this.userStatus = userStatus;
+    public void setUserLoggedIn(boolean userLoggedIn) {
+        this.userLoggedIn = userLoggedIn;
     }
     public Timestamp getLastLoginTimestamp() {
         return lastLoginTimestamp;
